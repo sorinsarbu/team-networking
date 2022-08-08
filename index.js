@@ -1,3 +1,7 @@
+function $(selector) {
+  return document.querySelector(selector);
+}
+
 function getTeamHTML(team) {
   return `
   <tr>
@@ -20,16 +24,10 @@ function displayTeams(teams) {
 
 function loadTeams() {
   fetch("data/teams.json")
-    .then(function (r) {
-      return r.json();
-    })
-    .then(function (teams) {
+    .then((r) => r.json())
+    .then((teams) => {
       displayTeams(teams);
     });
-}
-
-function $(selector) {
-  return document.querySelector(selector);
 }
 
 function submitForm(e) {
